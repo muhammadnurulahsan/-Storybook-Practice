@@ -1,6 +1,16 @@
+import styled from "styled-components";
+import { Body } from "../typography";
+
 type ReviewProps = {
   rating?: number;
 };
+
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
 
 const getReview = (rating?: number) => {
   if (!rating) {
@@ -21,5 +31,9 @@ const getReview = (rating?: number) => {
 };
 
 export const Review = ({ rating }: ReviewProps) => (
-  <div>{getReview(rating)}</div>
+  <Wrapper>
+    <Body type="span" size="S" className="review-text">
+      {getReview(rating)}
+    </Body>
+  </Wrapper>
 );

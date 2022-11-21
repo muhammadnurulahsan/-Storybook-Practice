@@ -1,30 +1,31 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from "styled-components";
+
+import { Body } from "../typography";
 
 const Container = styled.div(
-  () => css`
-    /* { theme: { color } } */
+  ({ theme: { color } }) => css`
     padding: 3px 8px;
-    background: #e9e9e9;
+    background: ${color.badgeBackground};
     border-radius: 4px;
     display: inline-block;
     span {
-      color: #636363;
+      color: ${color.badgeText};
     }
     span:first-letter {
       text-transform: capitalize;
     }
-    `
-)
-    /* color: ${color.badgeText}; */
-/* background: ${color.badgeBackground}; */
+  `
+);
 
 type BadgeProps = {
-  text: string
-  className?: string
-}
+  text: string;
+  className?: string;
+};
 
 export const Badge = ({ text, className }: BadgeProps) => (
   <Container className={className}>
+    <Body type="span" size="S">
       {text}
+    </Body>
   </Container>
-)
+);
